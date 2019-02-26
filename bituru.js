@@ -10,3 +10,18 @@ function abs(x) {
 function lerp(x,y,t){
 	return x+(y-x)*t;
 }
+function flat(array,depth=1){
+    const len = array.length,final = [];
+    for(let i = 0; i<len; i++){
+        if(Array.isArray(array[i]) && depth){
+            const tempArray = flat(array[i],depth-1);
+			const len = tempArray.length;
+			for(let i = 0; i < len; i++){               
+					final.push(tempArray[i]);
+			}
+        }else{
+    		final.push(array[i]);
+		}
+	}
+	return final;
+}
