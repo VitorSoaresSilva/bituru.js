@@ -25,3 +25,23 @@ function flat(array,depth=1){
 	}
 	return final;
 }
+function BubbleSort(arr) {
+	let changed;
+	let len = arr.length;
+	do{
+		changed = false;
+		for(let i = 0; i<len-1;i++)
+		{
+			if(arr[i]<=arr[i+1]) continue;
+			changed=true;
+			Switch(arr,i);
+		}
+	}while(changed);
+	return arr;
+}
+
+function Switch(arr,i) {
+	let temp = arr[i];
+	arr[i] = arr[i+1];
+	arr[i+1] = temp;
+}
