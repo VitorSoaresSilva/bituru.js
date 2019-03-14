@@ -42,9 +42,10 @@ function BubbleSort(arr) {
 	function SelectionSort(arr) 
 	{
 		let len = arr.length;
-		let min = 0;
+		let min;
 		for (let i = 0; i < len-1; i++) 
 		{
+			min = i;
 			for (let j = i+1; j < len; j++)
 			{ 			
 				if(arr[j]>=arr[min])continue
