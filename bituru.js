@@ -39,9 +39,53 @@ function BubbleSort(arr) {
 	}while(changed);
 	return arr;
 }
+function SelectionSort(arr) 
+{
+	let len = arr.length;
+	let min = 0;
+	for (let i = 0; i < len-1; i++) 
+	{
+		for (let j = i+1; j < len; j++)
+		{ 			
+			if(arr[j]>=arr[min])continue
+			min = j;
+		}
+		Switch(arr,i,min);
+	}
+	return arr;
+}
+function QuickSort(arr,low,high) {
+	if(low<high)
+	{
+		pi = Partition(arr,low,high);
+		QuickSort(arr,low,pi-1);
+		QuickSort(arr,pi+1,high);
+	}
+}
+function Partition(arr,low,high) {
+	let pivot = arr[high];
+	let i = low-1;
+	for(let j = low;j<high;j++)
+	{
+		if(arr[j]<=pivot)
+		{
+			i++;
+			Switch(arr,i,j);
+		}
+	}
+	Switch(arr,i+1,high);
+	return (i+1);
+}
+
+
 
 function Switch(arr,i) {
 	let temp = arr[i];
 	arr[i] = arr[i+1];
 	arr[i+1] = temp;
+}
+function Switch(arr,i,j){
+	let temp = arr[i];
+	arr[i] = arr[j];
+	arr[j] = temp;
 }
