@@ -37,7 +37,6 @@ function BubbleSort(arr) {
 			arr.__sw__ap__(i,i+1);
 		}
 	}while(changed);
-	return arr;
 }
 	function SelectionSort(arr) 
 	{
@@ -53,7 +52,6 @@ function BubbleSort(arr) {
 			}
 			arr.__sw__ap__(i,min);
 		}
-		return arr;
 	}
 function QuickSort(arr,low,high) {
 	if(low<high)
