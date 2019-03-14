@@ -53,3 +53,18 @@ function BubbleSort(arr) {
 		}
 	}while(changed);
 }
+function InsertionSort(arr) {
+	let len = arr.length;
+	let key;
+	for(let i = 1;i<len;i++)
+	{
+		key = arr[i];
+		let j = i-1;
+		while(key<arr[j] && j>-1)
+		{
+			arr.__sw__ap__(j,j+1);
+			j--;
+		}
+		arr[j+1] = key;
+	}
+}
