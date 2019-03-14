@@ -34,26 +34,26 @@ function BubbleSort(arr) {
 		{
 			if(arr[i]<=arr[i+1]) continue;
 			changed=true;
-			Switch(arr,i);
+			arr.__sw__ap__(i,i+1);
 		}
 	}while(changed);
 	return arr;
 }
-function SelectionSort(arr) 
-{
-	let len = arr.length;
-	let min = 0;
-	for (let i = 0; i < len-1; i++) 
+	function SelectionSort(arr) 
 	{
-		for (let j = i+1; j < len; j++)
-		{ 			
-			if(arr[j]>=arr[min])continue
-			min = j;
+		let len = arr.length;
+		let min = 0;
+		for (let i = 0; i < len-1; i++) 
+		{
+			for (let j = i+1; j < len; j++)
+			{ 			
+				if(arr[j]>=arr[min])continue
+				min = j;
+			}
+			arr.__sw__ap__(i,min);
 		}
-		Switch(arr,i,min);
+		return arr;
 	}
-	return arr;
-}
 function QuickSort(arr,low,high) {
 	if(low<high)
 	{
@@ -70,22 +70,14 @@ function Partition(arr,low,high) {
 		if(arr[j]<=pivot)
 		{
 			i++;
-			Switch(arr,i,j);
+			arr.__sw__ap__(i,j);
 		}
 	}
-	Switch(arr,i+1,high);
+	arr.__sw__ap__(i+1,high);
 	return (i+1);
 }
-
-
-
-function Switch(arr,i) {
-	let temp = arr[i];
-	arr[i] = arr[i+1];
-	arr[i+1] = temp;
-}
-function Switch(arr,i,j){
-	let temp = arr[i];
-	arr[i] = arr[j];
-	arr[j] = temp;
+Array.prototype.__sw__ap__ = function(i,j){
+	let temp = this[i];
+	this[i] = this[j];
+	this[j] = temp;
 }
